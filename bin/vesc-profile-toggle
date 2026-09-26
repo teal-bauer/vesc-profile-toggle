@@ -1,0 +1,5 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 teal-bauer
+# event-service forwards every seatbox press; the helper qualifies the gesture.
+exec python3 "${VESC_PROFILE_HELPER_DIR:-/data/extensions/bin}/vesc_profile_toggle.py" "$@"

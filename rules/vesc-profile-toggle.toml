@@ -1,0 +1,22 @@
+[[rule]]
+name = "vesc-profile-toggle"
+on = ["button.seatbox.press"]
+cooldown = "250ms"
+concurrency = "drop"
+[[rule.step]]
+do = "exec"
+command = "/data/extensions/bin/vesc-profile-toggle"
+timeout = "20s"
+
+[[rule]]
+name = "vesc-profile-power-reset"
+on = ["input.engine-power"]
+concurrency = "queue"
+[[rule.input]]
+hash = "vehicle"
+fields = ["engine-power"]
+topic = "input.engine-power"
+[[rule.step]]
+do = "exec"
+command = "/data/extensions/bin/vesc-profile-toggle"
+timeout = "20s"
